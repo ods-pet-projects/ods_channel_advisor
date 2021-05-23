@@ -1,0 +1,6 @@
+config.py
+.mypy_cache
+.idea
+persistence.pickle
+logs
+data
