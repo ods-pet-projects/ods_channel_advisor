@@ -31,8 +31,12 @@ model = OneVsRestClassifier(LogisticRegression())
 print('cross_val score:')
 cv_score = cross_validate(model, X_train, y_train,
                           cv=5, return_estimator=True,
-                          return_train_score=True)
-# print(cv_score)
-print(f'cv_score for main {len(recommend_channels)} channels')
+                          return_train_score=True,
+                          scoring='f1_macro')
+print(f'tfidf_logreg score for main {len(recommend_channels)} channels')
+print('cv_score f1 macro')
+print(cv_score['train_score'])
+
+print(f'val score')
 y_pred = cv_score['estimator'][0].predict(X_val)
 print_evaluation_scores(y_val, y_pred)
