@@ -4,6 +4,8 @@ import pandas as pd
 from sklearn.metrics import average_precision_score, f1_score, accuracy_score
 from sklearn.model_selection import train_test_split
 
+import sys
+sys.path.append('..')
 
 from config import ROOT_DIR
 from models.tfidf_model import TfidfModel
