@@ -71,7 +71,14 @@ def main():
 
     X_text, y = load_data(ifile_path, ofile_data)
     X_text_train, X_text_val, y_train, y_val = train_test_split(X_text, y, random_state=0)
-
+    # print('X_text_val 0')
+    # for i in range(30):
+    #     print(X_text_val.iloc[i])
+    #     print()
+    #     print()
+    #     print()
+    #
+    # return
     model_names = ['tfidf_logreg', 'tfidf_knn', 'count_logreg', 'count_knn', 'tfidf_ch_logreg, tfidf_ch_knn']
     for model_name in model_names:
         ofile_model_path = f'{ROOT_DIR}/cache/{model_name}'
