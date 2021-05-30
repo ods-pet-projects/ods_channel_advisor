@@ -92,7 +92,8 @@ def get_channels_text(y):
 
 
 def get_tfidf_answer(text):
-    ofile_model_path = f'{ROOT_DIR}/cache/tfidf_logreg/model_obj'
+    # ofile_model_path = f'{ROOT_DIR}/cache/tfidf_logreg/model_obj'
+    ofile_model_path = f'{ROOT_DIR}/cache/count_logreg/model_obj'
     model = loadit(ofile_model_path)
     y_pred = model.predict([text])
     ans_text = get_channels_text(y_pred[0])
