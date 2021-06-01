@@ -5,3 +5,5 @@ persistence.pickle
 logs
 data
 cache
+venv
+
