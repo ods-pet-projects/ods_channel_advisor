@@ -92,11 +92,16 @@ def main():
         print_evaluation_scores(y_val, y_pred)
 
 
-def get_channels_text(y):
+def get_channels(y):
     ans_list = []
     for i, c in enumerate(target_channels):
         if y[i]:
             ans_list.append(f'{c}')
+    return ans_list
+
+
+def get_channels_text(y):
+    ans_list = get_channels(y)
     return ', '.join(ans_list)
 
 
@@ -105,8 +110,8 @@ def get_tfidf_answer(text):
     ofile_model_path = f'{ROOT_DIR}/cache/count_logreg/model_obj'
     model = loadit(ofile_model_path)
     y_pred = model.predict([text])
-    ans_text = get_channels_text(y_pred[0])
-    return ans_text
+    channels = get_channels(y_pred[0])
+    return channels
 
 
 if __name__ == '__main__':
